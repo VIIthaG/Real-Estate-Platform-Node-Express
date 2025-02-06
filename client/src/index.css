@@ -1,1 +1,13 @@
 @import "tailwindcss";
+/* 
+body {
+  background-image: url(assets/hut.jpeg.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+} */
+
+body {
+  background-color: rgb(241, 245, 241);
+}
