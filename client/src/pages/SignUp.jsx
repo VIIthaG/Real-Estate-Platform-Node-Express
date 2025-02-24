@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -11,7 +12,7 @@ export default function SignUp() {
   function handleChange(e) {
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value, // to make  sure that  we can make entries in all 3 input fields without resetting anything or losing data
+      [e.target.id]: e.target.value, // to make sure that we can make entries in all 3 input fields without resetting anything or losing data
     });
   }
 
@@ -27,7 +28,6 @@ export default function SignUp() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      console.log(data);
       if (data.success === false) {
         setLoading(false);
         setError(data.message);
@@ -43,8 +43,10 @@ export default function SignUp() {
   }
 
   return (
-    <div className="p-3 max-w-lg mx-auto  bg-cover bg-center bg-no-repeat">
-      <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
+    <div className="p-3 max-w-lg mx-auto bg-cover bg-center bg-no-repeat my-20">
+      <h1 className="text-3xl text-center text-amber-100 font-semibold my-7">
+        Sign Up
+      </h1>
       <form className="flex gap-3 flex-col" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -69,20 +71,33 @@ export default function SignUp() {
           id="password"
           onChange={handleChange}
         />
-        <button
-          className="bg-slate-700 text-white p-3 rounded-lg  hover:opacity-97 disabled:opacity-80"
-          disabled={loading}
-        >
-          {loading ? "Loading" : "Submit"}
-        </button>
+        <div className="flex gap-2 justify-center">
+          <button
+            className="bg-amber-100 text-amber-800 p-3 rounded-lg w-48 font-semibold hover:opacity-97 disabled:opacity-80 justify-center gap-3 transition-transform duration-300 ease-in-out hover:scale-101 hover:bg-yellow-100"
+            disabled={loading}
+          >
+            {loading ? "Loading" : "Submit"}
+          </button>
+          <OAuth />
+        </div>
       </form>
-      <div className="my-0.5 flex gap-1 mt-5">
-        <p>Have an Account?</p>
-        <Link to={"/sign-in"}>
-          <span className="text-blue-700 hover:underline">Sign In</span>
-        </Link>
+      <div className="my-0.5 flex justify-between gap-2 mt-5">
+        <div className="flex gap-2">
+          <p>Have an Account?</p>
+          <Link to={"/signin"}>
+            <span className="text-amber-100 hover:underline">Sign In</span>
+          </Link>
+        </div>
+        <div className="flex gap-2">
+          <p>Like What You See?</p>
+          <Link to={"/Rate"}>
+            <span className="text-amber-100 hover:underline">Rate Us</span>
+          </Link>
+        </div>
       </div>
-      {error && <p className="text-red-700">{error} </p>}
+      {error && (
+        <p className="text-red-700 flex justify-center my-3">{error} </p>
+      )}
     </div>
   );
 }
