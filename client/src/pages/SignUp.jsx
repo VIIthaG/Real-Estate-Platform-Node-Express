@@ -44,7 +44,7 @@ export default function SignUp() {
 
   return (
     <div className="p-3 max-w-lg mx-auto bg-cover bg-center bg-no-repeat my-20">
-      <h1 className="text-3xl text-center text-amber-100 font-semibold my-7">
+      <h1 className="text-3xl text-center text-amber-100 font-semibold my-7  ">
         Sign Up
       </h1>
       <form className="flex gap-3 flex-col" onSubmit={handleSubmit}>
@@ -73,7 +73,7 @@ export default function SignUp() {
         />
         <div className="flex gap-2 justify-center">
           <button
-            className="bg-amber-100 text-amber-800 p-3 rounded-lg w-48 font-semibold hover:opacity-97 disabled:opacity-80 justify-center gap-3 transition-transform duration-300 ease-in-out hover:scale-101 hover:bg-yellow-100"
+            className="bg-amber-100 text-amber-800 p-3 rounded-lg w-48 font-semibold hover:opacity-97 disabled:opacity-80 justify-center gap-3 transition-transform duration-300 ease-in-out hover:scale-101 hover:bg-yellow-100 hover:shadow-md"
             disabled={loading}
           >
             {loading ? "Loading" : "Submit"}

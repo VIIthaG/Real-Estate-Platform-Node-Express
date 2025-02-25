@@ -67,7 +67,7 @@ export default function SignIn() {
         />
         <div className="flex  gap-2 justify-center">
           <button
-            className="bg-amber-100 text-amber-800 p-3 rounded-lg w-48 font-semibold hover:opacity-97 disabled:opacity-80 justify-center gap-3 transition-transform duration-300 ease-in-out hover:scale-101 hover:bg-yellow-100"
+            className="bg-amber-100 text-amber-800 p-3 rounded-lg w-48 font-semibold hover:opacity-97 disabled:opacity-80 justify-center gap-3 transition-transform duration-300 ease-in-out hover:scale-101 hover:bg-yellow-100 hover:shadow-md"
             disabled={loading}
           >
             {loading ? "Loading" : "Submit"}
