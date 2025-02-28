@@ -10,6 +10,10 @@ export default function Header() {
   return (
     <header className="bg-amber-800 shadow-2xl">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-4 relative">
+        <small className="hidden lg:inline mr-5 font-semibold text-stone-400">
+          {" "}
+          V1.03
+        </small>
         {/* Logo and Made by VIIthaG */}
         <h1 className="font-bold flex items-center text-xl cursor-default">
           <Link to="/">
@@ -24,7 +28,7 @@ export default function Header() {
         </h1>
 
         <form
-          className="bg-slate-100 p-3 rounded-lg flex items-center ml-10 lg:ml-12 mr-4  lg:mr-30"
+          className="bg-slate-100 p-3 rounded-lg flex items-center ml-12 lg:ml-25 mr-4  lg:mr-30"
           action=""
         >
           <input
@@ -38,6 +42,11 @@ export default function Header() {
           <FaSearch className="text-slate-500"></FaSearch>
         </form>
         <ul className="flex gap-4">
+          <Link to="/">
+            <li className="hidden lg:inline text-amber-50 hover:underline">
+              Donate
+            </li>
+          </Link>
           <Link to="/">
             <li className="hidden sm:inline text-amber-50 hover:underline">
               Home

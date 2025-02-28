@@ -54,7 +54,7 @@ export default function SignUp() {
           <input
             type="text"
             placeholder="username"
-            className="border border-gray-200 p-3 rounded-lg bg-gray-200"
+            className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="username"
             onChange={handleChange}
           />
@@ -62,7 +62,7 @@ export default function SignUp() {
           <input
             type="text"
             placeholder="email"
-            className="border border-gray-200 p-3 rounded-lg bg-gray-200"
+            className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="email"
             onChange={handleChange}
           />
@@ -70,7 +70,7 @@ export default function SignUp() {
           <input
             type="password"
             placeholder="password"
-            className="border border-gray-200 p-3 rounded-lg bg-gray-200"
+            className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="password"
             onChange={handleChange}
           />
