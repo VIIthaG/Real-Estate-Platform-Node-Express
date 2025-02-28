@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className="bg-amber-800 shadow-2xl">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-4 relative">
-        <small className="hidden lg:inline mr-5 font-semibold text-stone-400">
+        <small className="hidden lg:inline mr-5 font-semibold text-stone-300">
           {" "}
           V1.03
         </small>

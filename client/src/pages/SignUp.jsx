@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
+import ad from "/Users/apple/Desktop/Real Estate Project/client/src/assets/ad.jpg";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -102,6 +103,12 @@ export default function SignUp() {
           <p className="text-red-700 flex justify-center my-3">{error} </p>
         )}
       </div>
+      <Link
+        to="https://www.apple.com/in/"
+        className="flex justify-center mt-4 p-5 shadow-lg"
+      >
+        <img src={ad} className="w-120 h-40 lg:w-150 lg:h-45 " />
+      </Link>
     </div>
   );
 }

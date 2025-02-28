@@ -9,6 +9,9 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase";
 import {
+  signOutUserFailure,
+  signOutUserStart,
+  signOutUserSuccess,
   updateUserStart,
   updateUserFailure,
   updateUserSuccess,
@@ -102,6 +105,21 @@ export default function Profile() {
     }
   };
 
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+      dispatch(signOutUserSuccess(data));
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
+    }
+  };
+
   return (
     <div className="p-6">
       <h1 className="text-3xl font-semibold text-center my-5 shadow-2xl">
@@ -184,7 +202,10 @@ export default function Profile() {
           >
             Delete Account
           </span>
-          <span className="hover:underline hover:text-red-600 text-amber-800">
+          <span
+            onClick={handleSignOut}
+            className="hover:underline hover:text-red-600 text-amber-800"
+          >
             Sign Out
           </span>
         </div>
@@ -194,6 +215,7 @@ export default function Profile() {
         <p className="text-amber-50 font-semibold shadow-lg rounded p-1">
           {updateSuccess ? "Updated " : ""}
         </p>
+        <div></div>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signInSuccess } from "../redux/user/userSlice";
 import { signInFailure } from "../redux/user/userSlice";
 import OAuth from "../components/OAuth";
+import ad from "/Users/apple/Desktop/Real Estate Project/client/src/assets/ad.jpg";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -91,6 +92,9 @@ export default function SignIn() {
         </div>
         {error && <p className="text-red-700">{error} </p>}
       </div>
+      <Link to="wce.com" className="flex justify-center mt-15 p-7 shadow-lg">
+        <img src={ad} className="w-120 h-40 lg:w-150 lg:h-50" />
+      </Link>
     </div>
   );
 }
