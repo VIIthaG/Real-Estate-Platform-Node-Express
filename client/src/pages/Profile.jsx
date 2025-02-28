@@ -12,6 +12,9 @@ import {
   updateUserStart,
   updateUserFailure,
   updateUserSuccess,
+  deleteUserStart,
+  deleteUserFailure,
+  deleteUserSuccess,
 } from "../redux/user/userSlice";
 
 export default function Profile() {
@@ -82,6 +85,23 @@ export default function Profile() {
     }
   };
 
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
+
   return (
     <div className="p-6">
       <h1 className="text-3xl font-semibold text-center my-5 shadow-2xl">
@@ -119,7 +139,7 @@ export default function Profile() {
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className="text-green-500">{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
-            <span className="text-amber-50 font-semibold shadow-lg">
+            <span className="text-amber-50 font-semibold shadow-lg  rounded p-1">
               Avatar Updated
             </span>
           ) : null}
@@ -158,7 +178,10 @@ export default function Profile() {
 
       <div className="flex justify-center ">
         <div className="flex justify-between text-amber-800 font-semibold cursor-pointer mt-4 w-109">
-          <span className="hover:underline hover:text-red-600">
+          <span
+            onClick={handleDeleteUser}
+            className="hover:underline hover:text-red-600"
+          >
             Delete Account
           </span>
           <span className="hover:underline hover:text-red-600 text-amber-800">
@@ -168,7 +191,7 @@ export default function Profile() {
       </div>
       <div className="flex justify-center">
         <p className="text-red-500">{error ? error : ""}</p>
-        <p className="text-amber-50 font-semibold shadow-lg">
+        <p className="text-amber-50 font-semibold shadow-lg rounded p-1">
           {updateSuccess ? "Updated " : ""}
         </p>
       </div>
