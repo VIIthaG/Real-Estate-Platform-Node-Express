@@ -50,7 +50,7 @@ export default function Profile() {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-semibold text-center my-7 shadow-2xl ">
+      <h1 className="text-3xl font-semibold text-center my-5 shadow-2xl ">
         <span className="text-amber-100 text-3xl font-bold">
           Hi! &nbsp; &nbsp;
         </span>

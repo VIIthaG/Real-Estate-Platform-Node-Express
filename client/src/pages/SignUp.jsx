@@ -43,7 +43,7 @@ export default function SignUp() {
   }
 
   return (
-    <div className="my-7">
+    <div className="my-10">
       <div className="shadow-2xl ">
         <h1 className="text-3xl text-center text-amber-100 font-semibold my-5   ">
           Sign Up

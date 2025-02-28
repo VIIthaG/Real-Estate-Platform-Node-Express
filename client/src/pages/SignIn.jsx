@@ -45,7 +45,7 @@ export default function SignIn() {
   }
 
   return (
-    <div className="my-7">
+    <div className="my-10">
       <div className="shadow-2xl">
         <h1 className="text-3xl text-center text-amber-100 font-semibold  my-4  ">
           Sign In
@@ -56,7 +56,7 @@ export default function SignIn() {
           <input
             type="text"
             placeholder="email"
-            className="border border-gray-200 p-3 rounded-lg bg-gray-200"
+            className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="email"
             onChange={handleChange}
           />
@@ -64,7 +64,7 @@ export default function SignIn() {
           <input
             type="password"
             placeholder="password"
-            className="border border-gray-200 p-3 rounded-lg bg-gray-200"
+            className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="password"
             onChange={handleChange}
           />

@@ -29,7 +29,7 @@ export default function Header() {
         >
           <input
             // className="border-1 bg-white rounded-2xl"
-            className="focus outline-none w-45 lg:w-90 sm:w-64  md:32 "
+            className="focus outline-none w-45 lg:w-90 sm:w-64  md:32 hover:text-gray-700 "
             type="text"
             name=""
             id=""
@@ -54,7 +54,7 @@ export default function Header() {
                 alt="profile"
               />
             ) : (
-              <li className=" text-slate-700 hover:underline"> Sign in</li>
+              <li className=" text-amber-50 hover:underline"> Sign in</li>
             )}
           </Link>
         </ul>
