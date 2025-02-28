@@ -2,6 +2,7 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ProfPicDef from "/Users/apple/Desktop/Real Estate Project/client/src/assets/sdfe.png";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
@@ -10,13 +11,13 @@ export default function Header() {
     <header className="bg-amber-800 shadow-2xl">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-4 relative">
         {/* Logo and Made by VIIthaG */}
-        <h1 className="font-bold flex items-center text-xl ">
+        <h1 className="font-bold flex items-center text-xl cursor-default">
           <Link to="/">
             <span className="text-white">Kohi</span>
             <span className="text-amber-100">Estate</span>
           </Link>
           <Link to="https://github.com/VIIthaG">
-            <small className="hidden lg:inline opacity-0 hover:opacity-100   transition-opacity duration-900 text-xs mt-3  text-amber-50 ml-2">
+            <small className="hidden lg:inline opacity-0 hover:opacity-90   transition-opacity duration-700 text-xs mt-4  text-amber-50 ml-2 cursor-default">
               Made by VIIthaG
             </small>
           </Link>
@@ -48,8 +49,8 @@ export default function Header() {
           <Link to="/profile">
             {currentUser ? (
               <img
-                className="rounded-full h-7 w-7 object-cover"
-                src={currentUser.avatar}
+                className="rounded-full h-7 w-7 object-cover hover:shadow-lg"
+                src={currentUser?.avatar || ProfPicDef}
                 alt="profile"
               />
             ) : (
