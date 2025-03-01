@@ -19,10 +19,12 @@ import {
   deleteUserFailure,
   deleteUserSuccess,
 } from "../redux/user/userSlice";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const dispatch = useDispatch();
   const fileRef = useRef(null);
+
   const [file, setFile] = useState(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [filePerc, setFilePerc] = useState(0);
@@ -122,14 +124,17 @@ export default function Profile() {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-semibold text-center my-5 shadow-2xl">
-        <span className="text-amber-100 text-3xl font-bold">
-          Hi! &nbsp;&nbsp;
-        </span>
-        <span className="text-4xl text-amber-50 font-bold">
-          "{currentUser.username}"
-        </span>
-      </h1>
+      <div className="flex justify-center">
+        <h1 className="text-3xl font-semibold text-center my-5 w-64  shadow-lg">
+          <span className="text-amber-100 text-3xl font-bold">
+            Hi! &nbsp;&nbsp;
+          </span>
+          <span className="text-4xl text-amber-50 font-bold">
+            "{currentUser.username}"
+          </span>
+        </h1>
+      </div>
+
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
         <input
           type="file"
@@ -138,7 +143,7 @@ export default function Profile() {
           accept="image/*"
           onChange={(e) => setFile(e.target.files[0])}
         />
-        <div className="bg-yellow-100 p-2 rounded-lg">
+        <div className="bg-yellow-100 p-1 rounded-lg">
           <div className="bg-white">
             <img
               title="Click to Change"
@@ -186,12 +191,20 @@ export default function Profile() {
           value={formData.password}
           onChange={handleChange}
         />
-        <button
-          disabled={loading}
-          className="mt-4 hover:cursor-pointer ml-3 p-3 w-50 rounded-lg text-amber-800 transition-transform hover:scale-101 hover:shadow-md font-semibold bg-amber-100"
-        >
-          {loading ? "Loading..." : "Update"}
-        </button>
+        <div className="flex justify-center mr-2">
+          <button
+            disabled={loading}
+            className="mt-4 hover:cursor-pointer ml-3 p-3 w-50 rounded-lg text-amber-800 transition-transform hover:scale-101 hover:shadow-md font-semibold bg-amber-100"
+          >
+            {loading ? "Loading..." : "Update"}
+          </button>
+          <Link
+            to={"/createlisting"} //SUSSY
+            className="mt-4 hover:cursor-pointer ml-3 p-3 w-50 rounded-lg text-amber-800 transition-transform hover:scale-101 hover:shadow-md font-semibold bg-amber-100 text-center"
+          >
+            Create Listing
+          </Link>
+        </div>
       </form>
 
       <div className="flex justify-center ">

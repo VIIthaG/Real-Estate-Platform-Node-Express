@@ -44,11 +44,13 @@ export default function SignIn() {
   };
 
   return (
-    <div className="my-10">
-      <div className="shadow-2xl">
-        <h1 className="text-3xl text-center text-amber-100 font-semibold  my-4  ">
-          Sign In
-        </h1>
+    <div className="my-10 ">
+      <div className="flex justify-center">
+        <div className="shadow-lg w-80 h-14">
+          <h1 className="text-3xl text-center text-amber-100 font-semibold  my-4  ">
+            Sign In
+          </h1>
+        </div>
       </div>
       <div className="p-3  max-w-lg mx-auto  bg-cover bg-center bg-no-repeat  ">
         <form className="flex gap-3 flex-col" onSubmit={handleSubmit}>
@@ -93,7 +95,7 @@ export default function SignIn() {
         {error && <p className="text-red-700">{error} </p>}
       </div>
       <Link to="wce.com" className="flex justify-center mt-15 p-7 shadow-lg">
-        <img src={ad} className="w-120 h-40 lg:w-150 lg:h-50" />
+        <img src={ad} className="w-120 h-40 lg:w-150 lg:h-45" />
       </Link>
     </div>
   );

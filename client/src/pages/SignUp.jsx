@@ -45,10 +45,12 @@ export default function SignUp() {
 
   return (
     <div className="my-10">
-      <div className="shadow-2xl ">
-        <h1 className="text-3xl text-center text-amber-100 font-semibold my-5   ">
-          Sign Up
-        </h1>
+      <div className="flex justify-center">
+        <div className="shadow-lg w-80 h-15 ">
+          <h1 className="text-3xl text-center text-amber-100 font-semibold my-5   ">
+            Sign Up
+          </h1>
+        </div>
       </div>
       <div className="p-3 max-w-lg mx-auto bg-cover bg-center bg-no-repeat ">
         <form className="flex gap-3 flex-col" onSubmit={handleSubmit}>
