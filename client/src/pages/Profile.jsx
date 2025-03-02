@@ -26,9 +26,11 @@ export default function Profile() {
   const fileRef = useRef(null);
 
   const [file, setFile] = useState(null);
-
+  const [showListingsError, setShowListingsError] = useState(false);
+  const [userListings, setUserListings] = useState([]);
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [filePerc, setFilePerc] = useState(0);
+  const [] = useState(false);
   const [fileUploadError, setFileUploadError] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -120,6 +122,22 @@ export default function Profile() {
       dispatch(signOutUserSuccess(data));
     } catch (error) {
       dispatch(signOutUserFailure(error.message));
+    }
+  };
+
+  const handleShowListings = async () => {
+    try {
+      setShowListingsError(false);
+      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const data = await res.json();
+      if (data.success === false) {
+        setShowListingsError(true);
+        return;
+      }
+
+      setUserListings(data);
+    } catch (error) {
+      setShowListingsError(true);
     }
   };
 
@@ -217,7 +235,10 @@ export default function Profile() {
             Delete Account
           </span>
           <small className="mr-10 w-26 text-center cursor-pointer text-white p-1 font-semibold  hover:shadow-md hover:scale-101 transition-transform hover:bg-stone-800  bg-stone-700 rounded-lg">
-            <button className="cursor-pointer"> Show Listings</button>
+            <button onClick={handleShowListings} className="cursor-pointer">
+              {" "}
+              Show Listings
+            </button>
           </small>
           <span
             onClick={handleSignOut}
@@ -229,8 +250,11 @@ export default function Profile() {
       </div>
       <div className="flex justify-center">
         <p className="text-red-500">{error ? error : ""}</p>
-        <p className="text-amber-50 font-semibold shadow-lg rounded p-1">
+        {/* <p className="text-amber-50 font-semibold shadow-lg rounded p-1">
           {updateSuccess ? "Updated " : ""}
+        </p> */}
+        <p className="text-red-500">
+          {showListingsError ? "Error Showing User Listings" : ""}
         </p>
       </div>
     </div>
