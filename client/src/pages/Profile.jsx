@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import ProfPicDef from "../assets/sdfe.png"; // ✅ Corrected import path
+import ProfPicDef from "../assets/sdfe.png";
+import { FaTrash, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaFacebook, FaTwitter } from "react-icons/fa";
+
 import {
   getDownloadURL,
   getStorage,
@@ -140,6 +143,24 @@ export default function Profile() {
       setShowListingsError(true);
     }
   };
+  const handleListingDelete = async (listingId) => {
+    try {
+      const res = await fetch(`/api/listing/delete/${listingId}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
+
+      setUserListings((prev) =>
+        prev.filter((listing) => listing._id !== listingId)
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="p-6 ">
@@ -162,13 +183,14 @@ export default function Profile() {
           accept="image/*"
           onChange={(e) => setFile(e.target.files[0])}
         />
-        <div className="bg-stone-400 p-1 rounded-lg">
-          <div className="bg-white">
+        <div className="bg-stone-400   p-1 rounded-lg">
+          <div className="bg-stone-300">
             <img
               title="Click to Change"
               onClick={() => fileRef.current.click()}
               src={formData.avatar}
-              className=" h-40 w-40 object-cover cursor-pointer"
+              onLoad={(e) => e.target.classList.remove("opacity-0")}
+              className=" h-40  opacity-0 transition-opacity duration-500 w-40 object-cover cursor-pointer"
               alt="Profile"
             />
           </div>
@@ -180,10 +202,6 @@ export default function Profile() {
             </span>
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className="text-green-500">{`Uploading ${filePerc}%`}</span>
-          ) : filePerc === 100 ? (
-            <span className="text-amber-50 font-semibold shadow-lg  rounded p-1">
-              Avatar Updated
-            </span>
           ) : null}
         </p>
         <input
@@ -258,24 +276,34 @@ export default function Profile() {
         </p>
       </div>
 
-      <div className="justify-center flex">
-        <div className="flex w-130 mt-5  justify-between">
+      <div className="justify-center  flex">
+        <div className="flex max-w-130  justify-evenly mt-5 ">
           {userListings &&
             userListings.length > 0 &&
             userListings.map((listing) => {
               return (
-                <div
-                  className="w-14 h-14 overflow-hidden rounded-lg"
-                  key={listing._id}
-                >
+                <div className="w-14 h-14 m-1 mb-5 " key={listing._id}>
                   <Link to={`/listing/${listing._id}`}>
                     <img
                       src={listing.imageUrls[0]}
                       alt="listing"
-                      className="w-full h-full object-cover opacity-0 transition-opacity duration-500"
+                      className="w-full h-full object-cover rounded-lg opacity-0 transition-opacity duration-500"
                       onLoad={(e) => e.target.classList.remove("opacity-0")}
                     />
                   </Link>
+
+                  <div className="flex mt-1 justify-evenly">
+                    <button
+                      onClick={() => handleListingDelete(listing._id)}
+                      className="hover:cursor-pointer"
+                    >
+                      <FaTrash className="text-red-400" />
+                    </button>
+
+                    <button className="hover:cursor-pointer">
+                      <FaEdit className="text-green-600" />
+                    </button>
+                  </div>
                 </div>
               );
             })}

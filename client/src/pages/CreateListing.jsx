@@ -323,6 +323,7 @@ export default function CreateListing() {
               onChange={(e) => setFiles(e.target.files)}
               className="p-3  bg-gray-200 rounded w-full"
               type="file"
+              placeholder="Click to Upload"
               id="images"
               accept="image/*"
               multiple

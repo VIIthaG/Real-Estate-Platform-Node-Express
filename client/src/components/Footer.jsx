@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaEdit, FaFacebook, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa";
 import { FaDiscord } from "react-icons/fa";
