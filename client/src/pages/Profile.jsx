@@ -142,8 +142,8 @@ export default function Profile() {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-center">
+    <div className="p-6 ">
+      <div className="flex justify-center ">
         <h1 className="text-3xl font-semibold text-center my-5 w-64  shadow-lg">
           <span className="text-amber-100 text-3xl font-bold">
             Hi! &nbsp;&nbsp;
@@ -256,6 +256,30 @@ export default function Profile() {
         <p className="text-red-500">
           {showListingsError ? "Error Showing User Listings" : ""}
         </p>
+      </div>
+
+      <div className="justify-center flex">
+        <div className="flex w-130 mt-5  justify-between">
+          {userListings &&
+            userListings.length > 0 &&
+            userListings.map((listing) => {
+              return (
+                <div
+                  className="w-14 h-14 overflow-hidden rounded-lg"
+                  key={listing._id}
+                >
+                  <Link to={`/listing/${listing._id}`}>
+                    <img
+                      src={listing.imageUrls[0]}
+                      alt="listing"
+                      className="w-full h-full object-cover opacity-0 transition-opacity duration-500"
+                      onLoad={(e) => e.target.classList.remove("opacity-0")}
+                    />
+                  </Link>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </div>
   );
