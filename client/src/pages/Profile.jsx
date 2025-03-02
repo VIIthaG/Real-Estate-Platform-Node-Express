@@ -26,6 +26,7 @@ export default function Profile() {
   const fileRef = useRef(null);
 
   const [file, setFile] = useState(null);
+
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
@@ -143,13 +144,13 @@ export default function Profile() {
           accept="image/*"
           onChange={(e) => setFile(e.target.files[0])}
         />
-        <div className="bg-yellow-100 p-1 rounded-lg">
+        <div className="bg-stone-400 p-1 rounded-lg">
           <div className="bg-white">
             <img
               title="Click to Change"
               onClick={() => fileRef.current.click()}
               src={formData.avatar}
-              className="rounded-lg h-40 w-40 object-cover cursor-pointer"
+              className=" h-40 w-40 object-cover cursor-pointer"
               alt="Profile"
             />
           </div>
@@ -194,13 +195,13 @@ export default function Profile() {
         <div className="flex justify-center mr-2">
           <button
             disabled={loading}
-            className="mt-4 hover:cursor-pointer ml-3 p-3 w-50 rounded-lg text-amber-800 transition-transform hover:scale-101 hover:shadow-md font-semibold bg-amber-100"
+            className="mt-4  hover:bg-yellow-100  hover:cursor-pointer ml-3 p-3 w-50 rounded-lg text-amber-800 transition-transform hover:scale-101 hover:shadow-md font-semibold bg-amber-100"
           >
             {loading ? "Loading..." : "Update"}
           </button>
           <Link
             to={"/createlisting"} //SUSSY
-            className="mt-4 hover:cursor-pointer ml-3 p-3 w-50 rounded-lg text-amber-800 transition-transform hover:scale-101 hover:shadow-md font-semibold bg-amber-100 text-center"
+            className="mt-4 hover:bg-yellow-100 hover:cursor-pointer ml-3 p-3 w-50 rounded-lg text-amber-800 transition-transform hover:scale-101 hover:shadow-md font-semibold bg-amber-100 text-center"
           >
             Create Listing
           </Link>
@@ -215,6 +216,9 @@ export default function Profile() {
           >
             Delete Account
           </span>
+          <small className="mr-10 w-26 text-center cursor-pointer text-white p-1 font-semibold  hover:shadow-md hover:scale-101 transition-transform hover:bg-stone-800  bg-stone-700 rounded-lg">
+            <button className="cursor-pointer"> Show Listings</button>
+          </small>
           <span
             onClick={handleSignOut}
             className="hover:underline hover:text-red-600 text-amber-800"
@@ -228,7 +232,6 @@ export default function Profile() {
         <p className="text-amber-50 font-semibold shadow-lg rounded p-1">
           {updateSuccess ? "Updated " : ""}
         </p>
-        <div></div>
       </div>
     </div>
   );

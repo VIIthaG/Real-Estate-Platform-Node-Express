@@ -46,7 +46,7 @@ export default function SignUp() {
   return (
     <div className="my-10">
       <div className="flex justify-center">
-        <div className="shadow-lg w-80 h-15 ">
+        <div className="shadow-lg w-45 h-15 rounded ">
           <h1 className="text-3xl text-center text-amber-100 font-semibold my-5   ">
             Sign Up
           </h1>
