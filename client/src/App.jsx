@@ -10,6 +10,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Footer from "./components/Footer";
 import CreateListing from "./pages/CreateListing";
 import UpdateListing from "./pages/updateListing";
+import Listing from "./pages/Listing";
 
 export default function App() {
   return (
@@ -33,6 +34,8 @@ export default function App() {
 
               <Route path="/profile" element={<Profile />} />
             </Route>
+
+            <Route element={<Listing />} path="/listing/:listingId" />
           </Routes>
         </main>
         <Footer />

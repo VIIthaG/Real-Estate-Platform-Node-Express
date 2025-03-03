@@ -21,6 +21,7 @@
     "mongodb": "^6.13.0",
     "mongoose": "^8.10.0",
     "motion": "^12.4.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "swiper": "^11.2.4"
   }
 }
