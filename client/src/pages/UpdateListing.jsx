@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   getDownloadURL,
   getStorage,
+  list,
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
@@ -14,6 +15,7 @@ export default function UpdateListing() {
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const [files, setFiles] = useState([]);
+  const params = useParams();
   const [formData, setFormData] = useState({
     imageUrls: [],
     name: "",
@@ -31,21 +33,24 @@ export default function UpdateListing() {
   const [imageUploadError, setImageUploadError] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
-  const params = useParams();
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.listingId;
+
       const res = await fetch(`/api/listing/get/${listingId}`);
       const data = await res.json();
       if (data.success === false) {
-        setError(data.message);
+        console.log(data.error);
         return;
       }
-      return setFormData(data);
+      setFormData(data);
     };
+
     fetchListing();
   }, []);
+
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
@@ -168,10 +173,10 @@ export default function UpdateListing() {
     }
   };
   return (
-    <main className="p-3 max-w-4xl mx-auto">
+    <main className="p-3 max-w-4xl  mx-auto">
       <div className="flex justify-center">
-        <h1 className="text-3xl font-semibold w-80 text-center text-amber-100 shadow-lg my-7">
-          Create a Listing
+        <h1 className="text-3xl font-semibold w-auto text-center text-amber-100 shadow-lg my-7">
+          Update Listing
         </h1>
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
@@ -378,7 +383,7 @@ export default function UpdateListing() {
             disabled={loading || uploading}
             className="p-3 bg-amber-100 text-amber-800 hover:bg-yellow-100 hover:scale-101 hover:shadow-lg m-5 transition-transform font-semibold rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
-            {loading ? "Creating..." : "Create listing"}
+            {loading ? "Updating..." : "Update listing"}
           </button>
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>

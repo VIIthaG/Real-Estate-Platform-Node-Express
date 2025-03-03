@@ -33,7 +33,6 @@ export default function Profile() {
   const [userListings, setUserListings] = useState([]);
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [filePerc, setFilePerc] = useState(0);
-  const [] = useState(false);
   const [fileUploadError, setFileUploadError] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -165,12 +164,12 @@ export default function Profile() {
   return (
     <div className="p-6 ">
       <div className="flex justify-center ">
-        <h1 className="text-3xl font-semibold text-center my-5 w-64  shadow-lg">
-          <span className="text-amber-100 text-3xl font-bold">
+        <h1 className="text-3xl font-semibold text-center my-5 w-auto max-w-100 truncate shadow-lg">
+          <span className="text-amber-100  text-3xl font-bold">
             Hi! &nbsp;&nbsp;
           </span>
           <span className="text-4xl text-amber-50 font-bold">
-            "{currentUser.username}"
+            {currentUser.username}"
           </span>
         </h1>
       </div>
@@ -282,7 +281,10 @@ export default function Profile() {
             userListings.length > 0 &&
             userListings.map((listing) => {
               return (
-                <div className="w-14 h-14 m-1 mb-5 " key={listing._id}>
+                <div
+                  className="w-14 h-14 m-1 mb-5 hover:scale-101 transition-transform"
+                  key={listing._id}
+                >
                   <Link to={`/listing/${listing._id}`}>
                     <img
                       src={listing.imageUrls[0]}
@@ -300,9 +302,11 @@ export default function Profile() {
                       <FaTrash className="text-red-400" />
                     </button>
 
-                    <button className="hover:cursor-pointer">
-                      <FaEdit className="text-green-600" />
-                    </button>
+                    <Link to={`/updatelisting/${listing._id}`}>
+                      <button className="hover:cursor-pointer mt-1">
+                        <FaEdit className="text-green-600" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               );
