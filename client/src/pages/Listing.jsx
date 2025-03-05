@@ -58,7 +58,7 @@ export default function Listing() {
       )}
       {listing && !loading && !error && (
         <div>
-          <Swiper navigation>
+          <Swiper navigation className="shadow-lg">
             {listing.imageUrls.map((url) => (
               <SwiperSlide key={url}>
                 <div
