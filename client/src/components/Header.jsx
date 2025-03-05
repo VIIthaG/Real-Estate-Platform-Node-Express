@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfPicDef from "/Users/apple/Desktop/Real Estate Project/client/src/assets/sdfe.png";
 
 export default function Header() {
+  const [searchTerm, setSearchTerm] = useState("");
   const { currentUser } = useSelector((state) => state.user);
 
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set("searchTerm", searchTerm);
+    const searchQuery = urlParams.toString();
+    navigate(`/search?${searchQuery}`);
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const searchTermFromUrl = urlParams.get("searchTerm");
+    if (searchTermFromUrl) {
+      setSearchTerm(searchTermFromUrl);
+    }
+  }, [location.search]);
   return (
     <header className="bg-amber-800 shadow-2xl">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-4 relative">
@@ -28,6 +45,7 @@ export default function Header() {
         </h1>
 
         <form
+          onSubmit={handleSubmit}
           className="bg-slate-100 p-3 rounded-lg flex items-center ml-12 lg:ml-25 mr-4  lg:mr-30"
           action=""
         >
@@ -37,9 +55,13 @@ export default function Header() {
             type="text"
             name=""
             id=""
+            value={searchTerm}
             placeholder="  Search..."
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <FaSearch className="text-slate-500"></FaSearch>
+          <button>
+            <FaSearch className="text-slate-500"></FaSearch>
+          </button>
         </form>
         <ul className="flex gap-4">
           <Link to="/">
