@@ -5,7 +5,9 @@ import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
+import taco from "/Users/apple/Desktop/Real Estate Project/client/src/assets/bBB.webp";
 
+import kfc from "/Users/apple/Desktop/Real Estate Project/client/src/assets/Screenshot-2021-12-28-132323.jpg";
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
@@ -92,8 +94,25 @@ export default function Home() {
         </Swiper>
       </div>
 
+      <div className="flex flex-1 gap-7 justify-center ">
+        <a href="https://www.kfc.com/menu">
+          <img
+            src={kfc}
+            alt="ad"
+            className="w-150 h-60 hidden lg:inline rounded-sm "
+          />
+        </a>
+        <a href="https://www.tacobell.com">
+          <img
+            src={taco}
+            alt="ad"
+            className="w-120 mr-3 h-60 rounded-sm lg:w-150"
+          />
+        </a>
+      </div>
+
       {/* listing results for offer, sale and rent */}
-      <div className="max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10">
+      <div className="max-w-6xl mx-auto p-3 flex flex-col gap-8 my-1">
         {offerListings && offerListings.length > 0 && (
           <div className="">
             <div className="my-3">
@@ -155,6 +174,8 @@ export default function Home() {
           </div>
         )}
       </div>
+      <br />
+      <br />
     </div>
   );
 }

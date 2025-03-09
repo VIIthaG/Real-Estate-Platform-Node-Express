@@ -96,7 +96,7 @@ export default function SignUp() {
           </div>
           <div className="flex gap-2">
             <p>Like What You See?</p>
-            <Link to={"/Rate"}>
+            <Link to={"https://github.com/VIIthaG"}>
               <span className="text-amber-100 hover:underline">Rate Us</span>
             </Link>
           </div>

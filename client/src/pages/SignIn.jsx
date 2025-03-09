@@ -87,14 +87,17 @@ export default function SignIn() {
 
           <div className=" ml-30 flex gap-2">
             <p>Like What You See?</p>
-            <Link to={"/Rate"}>
+            <Link to={"https://github.com/VIIthaG"}>
               <span className="text-amber-100 hover:underline">Rate Us</span>
             </Link>
           </div>
         </div>
         {error && <p className="text-red-700">{error} </p>}
       </div>
-      <Link to="wce.com" className="flex justify-center mt-15 p-7 shadow-lg">
+      <Link
+        to="https://www.apple.com/in/"
+        className="flex justify-center mt-15 p-7 shadow-lg"
+      >
         <img src={ad} className="w-120 h-40 lg:w-150 lg:h-45" />
       </Link>
     </div>

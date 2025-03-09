@@ -24,7 +24,7 @@ function Footer() {
             <Link to="https://www.snapchat.com">
               <FaSnapchat className="mt-1" />
             </Link>
-            <Link to="https://www.snapchat.com">
+            <Link to="https://www.facebook.com">
               <FaFacebook className="mt-1" />
             </Link>
             &nbsp; &nbsp; &nbsp;
@@ -34,16 +34,22 @@ function Footer() {
           </div>
 
           <div className="flex  space-x-4 mt-2">
-            <Link to="abc.com" className="hover:underline ">
+            <Link
+              to="https://policies.google.com/privacy?hl=en-US"
+              className="hover:underline "
+            >
               Privacy Policy
             </Link>
-            <Link to="abc.com" className="hover:underline">
+            <Link to="/cookiepolicy" className="hover:underline">
               Cookie Policy
             </Link>
-            <Link to="abc.com" className="hidden md:block hover:underline">
-              Sitemap
+            <Link to="/terms" className="hidden md:block hover:underline">
+              Terms and Conditions
             </Link>
-            <Link to="abc.com" className="hidden lg:block hover:underline">
+            <Link
+              to="https://mail.google.com/mail/?view=cm&fs=1&to=vllthag@gmail.com is this ok?"
+              className="hidden lg:block hover:underline"
+            >
               Website Feedback
             </Link>
           </div>

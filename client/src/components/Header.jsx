@@ -37,7 +37,7 @@ export default function Header() {
             <span className="text-white">Kohi</span>
             <span className="text-amber-100">Estate</span>
           </Link>
-          <Link to="https://github.com/VIIthaG">
+          <Link to="https://github.com/VIIthaG/Real-Estate-Platform-Node-Express">
             <small className="hidden lg:inline opacity-0 hover:opacity-90   transition-opacity duration-700 text-xs mt-4  text-amber-50 ml-2 cursor-default">
               Made by VIIthaG
             </small>
@@ -64,7 +64,7 @@ export default function Header() {
           </button>
         </form>
         <ul className="flex gap-4">
-          <Link to="/">
+          <Link to="https://buymeacoffee.com/viithag?status=1">
             <li className="hidden lg:inline text-amber-50 hover:underline">
               Donate
             </li>

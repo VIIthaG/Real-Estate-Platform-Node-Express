@@ -12,6 +12,8 @@ import CreateListing from "./pages/CreateListing";
 import UpdateListing from "./pages/updateListing";
 import Listing from "./pages/Listing";
 import Search from "./pages/Search";
+import Cookies from "./components/Cookies";
+import Terms from "./pages/Terms";
 
 export default function App() {
   return (
@@ -25,7 +27,9 @@ export default function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/about" element={<About />} />
+            <Route path="/terms" element={<Terms />} />
 
+            <Route path="cookiepolicy" element={<Cookies />} />
             <Route path="/search" element={<Search />} />
             <Route element={<PrivateRoute />}>
               <Route path="/createlisting" element={<CreateListing />} />

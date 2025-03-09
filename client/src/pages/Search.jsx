@@ -172,7 +172,7 @@ export default function Search() {
 
           {/* Search Button */}
           <div className="flex justify-center">
-            <button className="bg-amber-100 hover:scale-101  hover:cursor-pointer hover:bg-yellow-100 transition-transform text-amber-700 p-3 w-29 lg:w-full text-center rounded-lg uppercase hover:opacity-95">
+            <button className="bg-amber-100 hover:scale-101 font-semibold hover:cursor-pointer hover:bg-yellow-100 transition-transform text-amber-700 p-3 w-29 lg:w-full text-center rounded-lg uppercase hover:opacity-95">
               Search
             </button>
           </div>
@@ -200,14 +200,19 @@ export default function Search() {
 
           {!loading &&
             listings.map((listing) => (
-              <ListingItem key={listing._id} listing={listing} />
+              <ListingItem
+                key={listing._id}
+                listing={listing}
+                className="opacity-0 transition-opacity"
+                onLoad={(e) => e.target.classList.remove("opacity-0")}
+              />
             ))}
 
           {/* Show More Button */}
           {showMore && (
             <button
               onClick={onShowMoreClick}
-              className="text-green-700 hover:underline p-7 text-center col-span-full"
+              className="text-yellow-50 hover:underline p-7 text-center col-span-full"
             >
               Show more
             </button>
