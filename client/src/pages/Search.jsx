@@ -99,12 +99,12 @@ export default function Search() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
           {/* Search Input */}
           <div className="flex items-center gap-2">
-            <label className="whitespace-nowrap font-semibold">Search:</label>
+            <label className="whitespace-nowrap  font-semibold">Search:</label>
             <input
               type="text"
               id="searchTerm"
               placeholder="Search..."
-              className="border rounded-lg p-3 w-full"
+              className=" rounded-lg bg-white p-3 w-full"
               value={sidebardata.searchTerm}
               onChange={handleChange}
             />
@@ -160,7 +160,7 @@ export default function Search() {
             <select
               id="sort_order"
               onChange={handleChange}
-              className="border rounded-lg p-3"
+              className=" bg-white rounded-lg p-3"
               defaultValue="created_at_desc"
             >
               <option value="regularPrice_desc">Price: High to Low</option>
@@ -171,23 +171,25 @@ export default function Search() {
           </div>
 
           {/* Search Button */}
-          <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95">
-            Search
-          </button>
+          <div className="flex justify-center">
+            <button className="bg-amber-100 text-amber-700 p-3 w-29 lg:w-full text-center rounded-lg uppercase hover:opacity-95">
+              Search
+            </button>
+          </div>
         </form>
       </div>
 
       {/* Listing Results */}
       <div className="flex-1">
-        <h1 className="text-3xl font-semibold border-b p-3 text-slate-700 mt-5">
+        <h1 className="text-3xl font-semibold border-b p-3 text-yellow-50 mt-5">
           Listing results:
         </h1>
 
         <div className="p-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {!loading && listings.length === 0 && (
-            <p className="text-xl text-slate-700 col-span-full">
+            <div className="text-xl flex justify-center font-semibold  text-amber-100 col-span-full">
               No listings found!
-            </p>
+            </div>
           )}
 
           {loading && (

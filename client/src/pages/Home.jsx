@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="flex flex-col gap-6 p-18 lg:p-5 lg:mt-9 px-3 max-w-6xl mx-auto">
+      <div className="flex flex-col gap-6 p-10 lg:p-5 lg:mt-9 px-3 max-w-6xl mx-auto">
         <h1 className="text-amber-100 font-bold text-3xl lg:text-6xl">
           Find your next <span className="text-yellow-50">perfect</span>
           <br />
@@ -97,11 +97,11 @@ export default function Home() {
         {offerListings && offerListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl font-semibold text-amber-100">
+              <h2 className="text-2xl font-semibold w-39 text-center rounded-lg  text-amber-100">
                 Recent offers
               </h2>
               <Link
-                className="text-sm text-amber-800 hover:underline"
+                className="text-sm text-amber-800  hover:underline"
                 to={"/search?offer=true"}
               >
                 Show more offers

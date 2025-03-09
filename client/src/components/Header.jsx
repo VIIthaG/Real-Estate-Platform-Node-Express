@@ -59,7 +59,7 @@ export default function Header() {
             placeholder="  Search..."
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button>
+          <button className="hover:opacity-45 hover:cursor-pointer">
             <FaSearch className="text-slate-500"></FaSearch>
           </button>
         </form>
