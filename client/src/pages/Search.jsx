@@ -172,7 +172,7 @@ export default function Search() {
 
           {/* Search Button */}
           <div className="flex justify-center">
-            <button className="bg-amber-100 text-amber-700 p-3 w-29 lg:w-full text-center rounded-lg uppercase hover:opacity-95">
+            <button className="bg-amber-100 hover:scale-101  hover:cursor-pointer hover:bg-yellow-100 transition-transform text-amber-700 p-3 w-29 lg:w-full text-center rounded-lg uppercase hover:opacity-95">
               Search
             </button>
           </div>
@@ -185,9 +185,9 @@ export default function Search() {
           Listing results:
         </h1>
 
-        <div className="p-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="p-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
           {!loading && listings.length === 0 && (
-            <div className="text-xl flex justify-center font-semibold  text-amber-100 col-span-full">
+            <div className="text-xl flex justify-center font-semibold lg:mt-75 text-stone-700 col-span-full">
               No listings found!
             </div>
           )}
