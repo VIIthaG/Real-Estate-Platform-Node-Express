@@ -164,7 +164,7 @@ export default function Profile() {
   return (
     <div className="p-6 ">
       <div className="flex justify-center ">
-        <h1 className="text-3xl font-semibold text-center my-5 w-auto max-w-100 truncate shadow-lg">
+        <h1 className="text-3xl font-semibold text-center my-5 w-59 max-w-100 truncate shadow-lg">
           <span className="text-amber-100  text-3xl font-bold">
             Hi! &nbsp;&nbsp;
           </span>

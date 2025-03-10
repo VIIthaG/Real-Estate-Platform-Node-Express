@@ -3,7 +3,6 @@ import React from "react";
 function Cookies() {
   return (
     <div className=" ml-8 mt-8 lg:w-200 w-130 grid grid-cols-1">
-      {/* Heading */}
       <div>
         <span className="text-amber-50 text-3xl font-semibold">Cookie</span>
         <span className="text-amber-100 text-3xl font-semibold ">Policy</span>
@@ -11,7 +10,6 @@ function Cookies() {
       </div>
       <br />
 
-      {/* Section 1 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">Cookies:</span>
         <br />
@@ -58,7 +56,6 @@ function Cookies() {
       <br />
       <br />
 
-      {/* Section 2 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">DNT:</span>
         <br />
@@ -75,7 +72,6 @@ function Cookies() {
       <br />
       <br />
 
-      {/* Section 3 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">
           IP Addresses:

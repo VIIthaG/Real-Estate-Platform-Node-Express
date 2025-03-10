@@ -57,6 +57,7 @@ export default function Header() {
             id=""
             value={searchTerm}
             placeholder="  Search..."
+            required
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="hover:opacity-45 hover:cursor-pointer">

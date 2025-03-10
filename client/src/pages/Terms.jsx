@@ -3,7 +3,6 @@ import React from "react";
 function Terms() {
   return (
     <div className="ml-8 mt-8 lg:w-200 w-130 grid grid-cols-1">
-      {/* Heading */}
       <div>
         <span className="text-amber-100 text-3xl font-semibold">Terms</span>
         <span className="text-xl text-stone-400">&</span>
@@ -14,7 +13,6 @@ function Terms() {
       <br />
       <br />
 
-      {/* Section 1 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">
           Acceptance of the Terms of Use:
@@ -34,7 +32,6 @@ function Terms() {
       <br />
       <br />
 
-      {/* Section 2 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">Access:</span>
         <br />
@@ -50,7 +47,6 @@ function Terms() {
       <br />
       <br />
 
-      {/* Section 3 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">Accounts:</span>
         <br />
@@ -67,7 +63,6 @@ function Terms() {
       <br />
       <br />
 
-      {/* Section 4 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">
           KohiEstate Products:
@@ -83,7 +78,6 @@ function Terms() {
       <br />
       <br />
 
-      {/* Section 5 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">Posting:</span>
         <br />
@@ -100,7 +94,6 @@ function Terms() {
       <br />
       <br />
 
-      {/* Section 6 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">
           Code of Conduct:
@@ -117,7 +110,6 @@ function Terms() {
       <br />
       <br />
 
-      {/* Section 7 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">
           Prohibited Uses:

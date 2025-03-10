@@ -175,7 +175,7 @@ export default function UpdateListing() {
   return (
     <main className="p-3 max-w-4xl  mx-auto">
       <div className="flex justify-center">
-        <h1 className="text-3xl font-semibold w-auto text-center text-amber-100 shadow-lg my-7">
+        <h1 className="text-3xl font-semibold w-64 text-center text-amber-100 shadow-lg my-7">
           Update Listing
         </h1>
       </div>

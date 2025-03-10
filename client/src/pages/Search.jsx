@@ -94,10 +94,8 @@ export default function Search() {
 
   return (
     <div className="flex flex-col md:flex-row">
-      {/* Sidebar */}
       <div className="p-7 border-b-2 md:border-r-2 md:min-h-screen">
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-          {/* Search Input */}
           <div className="flex items-center gap-2">
             <label className="whitespace-nowrap  font-semibold">Search:</label>
             <input
@@ -110,7 +108,6 @@ export default function Search() {
             />
           </div>
 
-          {/* Type Filter */}
           <div className="flex gap-2 flex-wrap items-center">
             <label className="font-semibold">Type:</label>
             {["all", "rent", "sale"].map((type) => (
@@ -137,7 +134,6 @@ export default function Search() {
             </div>
           </div>
 
-          {/* Amenities Filter */}
           <div className="flex gap-2 flex-wrap items-center">
             <label className="font-semibold">Amenities:</label>
             {["parking", "furnished"].map((amenity) => (
@@ -154,7 +150,6 @@ export default function Search() {
             ))}
           </div>
 
-          {/* Sorting */}
           <div className="flex items-center gap-2">
             <label className="font-semibold">Sort:</label>
             <select
@@ -170,7 +165,6 @@ export default function Search() {
             </select>
           </div>
 
-          {/* Search Button */}
           <div className="flex justify-center">
             <button className="bg-amber-100 hover:scale-101 font-semibold hover:cursor-pointer hover:bg-yellow-100 transition-transform text-amber-700 p-3 w-29 lg:w-full text-center rounded-lg uppercase hover:opacity-95">
               Search
@@ -179,7 +173,6 @@ export default function Search() {
         </form>
       </div>
 
-      {/* Listing Results */}
       <div className="flex-1">
         <h1 className="text-3xl font-semibold border-b p-3 text-yellow-50 mt-5">
           Listing results:
@@ -208,7 +201,6 @@ export default function Search() {
               />
             ))}
 
-          {/* Show More Button */}
           {showMore && (
             <button
               onClick={onShowMoreClick}

@@ -56,10 +56,8 @@ export default function SignIn() {
   return (
     <div className="my-10 ">
       <div className="flex justify-center">
-        <div className="shadow-lg w-auto rounded h-14">
-          <h1 className="text-3xl text-center text-amber-100 font-semibold my-4">
-            Sign In
-          </h1>
+        <div className="shadow-lg w-34 flex justify-center text-center p-1 font-semibold text-amber-100 text-3xl rounded">
+          Sign In
         </div>
       </div>
       <div className="p-3 max-w-lg mx-auto bg-cover bg-center bg-no-repeat">

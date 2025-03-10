@@ -50,8 +50,8 @@ export default function Home() {
 
   return (
     <div>
-      <div className="flex flex-col gap-6 p-10 lg:p-5 lg:mt-9 px-3 max-w-6xl mx-auto">
-        <h1 className="text-amber-100 font-bold text-3xl lg:text-6xl">
+      <div className="flex flex-col gap-6 p-10 shadow-lg lg:p-5 lg:mt-9 px-3 max-w-6xl mx-auto">
+        <h1 className="text-amber-100  font-bold text-3xl lg:text-6xl">
           Find your next <span className="text-yellow-50">perfect</span>
           <br />
           place with ease
@@ -63,13 +63,12 @@ export default function Home() {
         </div>
         <Link
           to={"/signup"}
-          className="text-xs sm:text-sm text-amber-800 font-bold hover:scale-102 hover:bg-yellow-50 transition-transform bg-amber-50 p-1 w-20 rounded-lg text-center"
+          className=" sm:text-sm text-amber-700 font-bold hover:scale-102 hover:bg-yellow-50 transition-transform bg-amber-50 p-3 w-29 rounded-lg text-center"
         >
           Sign-Up
         </Link>
       </div>
 
-      {/* ✅ Centered Slider with smooth fade-in */}
       <div className="flex justify-center items-center my-5">
         <Swiper
           navigation
