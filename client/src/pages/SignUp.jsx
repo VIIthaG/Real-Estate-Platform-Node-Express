@@ -13,85 +13,118 @@ export default function SignUp() {
   function handleChange(e) {
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value, // to make sure that we can make entries in all 3 input fields without resetting anything or losing data
+      [e.target.id]: e.target.value,
     });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    // Frontend validation
+    if (!formData.email.includes("@")) {
+      setLoading(false);
+      setError("Invalid email. Please enter a valid email.");
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setLoading(false);
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+
     try {
-      setLoading(true);
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
-          "Content-Type": " application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+
       const data = await res.json();
-      if (data.success === false) {
+
+      if (!res.ok) {
+        // Handle custom server errors
+        if (data.message.includes("email already exists")) {
+          setError("This email is already registered. Try signing in.");
+        } else if (data.message.includes("username taken")) {
+          setError("Username is already taken. Try a different one.");
+        } else {
+          setError("Something went wrong. Please try again later.");
+        }
         setLoading(false);
-        setError(data.message);
         return;
       }
+
       setLoading(false);
-      setError(null);
       navigate("/signin");
     } catch (error) {
       setLoading(false);
-      setError(error.message);
+      setError("Failed to connect to the server. Please try again.");
     }
   }
 
   return (
     <div className="my-10">
       <div className="flex justify-center">
-        <div className="shadow-lg w-auto h-15 rounded ">
-          <h1 className="text-3xl text-center text-amber-100 font-semibold my-5   ">
+        <div className="shadow-lg w-auto h-15 rounded">
+          <h1 className="text-3xl text-center text-amber-100 font-semibold my-5">
             Sign Up
           </h1>
         </div>
       </div>
-      <div className="p-3 max-w-lg mx-auto bg-cover bg-center bg-no-repeat ">
+      <div className="p-3 max-w-lg mx-auto bg-cover bg-center bg-no-repeat">
         <form className="flex gap-3 flex-col" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="username"
+            placeholder="Username"
             className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="username"
             onChange={handleChange}
+            required
           />
 
           <input
             type="text"
-            placeholder="email"
+            placeholder="Email"
             className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="email"
             onChange={handleChange}
+            required
           />
 
           <input
             type="password"
-            placeholder="password"
+            placeholder="Password"
             className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="password"
             onChange={handleChange}
+            required
           />
+
           <div className="flex gap-2 justify-center">
             <button
-              className="bg-amber-100 text-amber-800 p-3 rounded-lg w-48 font-semibold hover:opacity-97 disabled:opacity-80 justify-center gap-3 transition-transform duration-300 ease-in-out hover:scale-101 hover:bg-yellow-100 hover:shadow-md"
+              className="bg-amber-100 text-amber-800 p-3 rounded-lg w-48 font-semibold hover:opacity-97 disabled:opacity-80 transition-transform duration-300 ease-in-out hover:scale-101 hover:bg-yellow-100 hover:shadow-md"
               disabled={loading}
             >
-              {loading ? "Loading" : "Submit"}
+              {loading ? "Loading..." : "Submit"}
             </button>
             <OAuth />
           </div>
         </form>
-        <div className="my-0.5 flex justify-between gap-2 mt-5 ">
-          <div className="flex gap-2 ">
+
+        {error && (
+          <p className="text-red-700 flex justify-center my-3">{error}</p>
+        )}
+
+        <div className="my-0.5 flex justify-between gap-2 mt-5">
+          <div className="flex gap-2">
             <p>Have an Account?</p>
             <Link to={"/signin"}>
-              <span className="text-amber-100 hover:underline ">Sign In</span>
+              <span className="text-amber-100 hover:underline">Sign In</span>
             </Link>
           </div>
           <div className="flex gap-2">
@@ -101,15 +134,13 @@ export default function SignUp() {
             </Link>
           </div>
         </div>
-        {error && (
-          <p className="text-red-700 flex justify-center my-3">{error} </p>
-        )}
       </div>
+
       <Link
         to="https://www.apple.com/in/"
         className="flex justify-center mt-4 p-5 shadow-lg"
       >
-        <img src={ad} className="w-120 h-40 lg:w-150 lg:h-45 " />
+        <img src={ad} className="w-120 h-40 lg:w-150 lg:h-45" />
       </Link>
     </div>
   );

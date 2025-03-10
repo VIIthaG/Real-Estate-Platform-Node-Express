@@ -25,11 +25,10 @@ function Terms() {
           The following terms and conditions, together with any referenced
           documents (collectively, "Terms of Use") are a legal agreement between
           you and your employees, agents, contractors and any other entity on
-          whose behalf you accept these terms (collectively, “you” and “your”),
-          and ServiceNow, Inc. if your domicile is within the USA, Canada or
-          Mexico, or ServiceNow Nederland B.V. if your domicile is within any
-          other country (“ServiceNow,” “we,” “us” and “our”). The Terms of Use
-          apply to ServiceNow’s Website (as defined below).
+          whose behalf you accept these terms (collectively, “you” and “your”) .
+          if your domicile is within the USA, Canada or Mexico. if your domicile
+          is within any other country ( “we,” “us” and “our”). The Terms of Use
+          apply to the Website (as defined below).
         </p>
       </div>
       <br />
@@ -71,15 +70,14 @@ function Terms() {
       {/* Section 4 */}
       <div>
         <span className="text-stone-600 text-2xl font-semibold">
-          ServiceNow Products:
+          KohiEstate Products:
         </span>
         <br />
         <br />
         <p className="text-amber-100 text-sm">
-          The “Website” does not include ServiceNow Products. “ServiceNow
-          Product” means the ServiceNow platform and any ServiceNow applications
-          or subscription services, including those customarily provided by us
-          only to our paying customers.
+          The “Website” does not include Products. “KohiEstate Product” means
+          the platform and any applications or subscription services, including
+          those customarily provided by us only to our paying customers.
         </p>
       </div>
       <br />
@@ -115,6 +113,7 @@ function Terms() {
           would expect to be treated yourself.
         </p>
       </div>
+
       <br />
       <br />
 

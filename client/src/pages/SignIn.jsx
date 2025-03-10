@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { signInStart } from "../redux/user/userSlice";
+import {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+} from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { signInSuccess } from "../redux/user/userSlice";
-import { signInFailure } from "../redux/user/userSlice";
 import OAuth from "../components/OAuth";
 import ad from "/Users/apple/Desktop/Real Estate Project/client/src/assets/ad.jpg";
 
@@ -13,12 +15,20 @@ export default function SignIn() {
   const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (error) {
+      dispatch(signInFailure(null));
+    }
+  }, []);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,
     });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -47,12 +57,12 @@ export default function SignIn() {
     <div className="my-10 ">
       <div className="flex justify-center">
         <div className="shadow-lg w-auto rounded h-14">
-          <h1 className="text-3xl text-center text-amber-100 font-semibold  my-4  ">
+          <h1 className="text-3xl text-center text-amber-100 font-semibold my-4">
             Sign In
           </h1>
         </div>
       </div>
-      <div className="p-3  max-w-lg mx-auto  bg-cover bg-center bg-no-repeat  ">
+      <div className="p-3 max-w-lg mx-auto bg-cover bg-center bg-no-repeat">
         <form className="flex gap-3 flex-col" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -60,6 +70,7 @@ export default function SignIn() {
             className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="email"
             onChange={handleChange}
+            required
           />
 
           <input
@@ -68,8 +79,9 @@ export default function SignIn() {
             className="border border-gray-200 p-3 rounded-lg bg-gray-200 hover:text-gray-700"
             id="password"
             onChange={handleChange}
+            required
           />
-          <div className="flex  gap-2 justify-center">
+          <div className="flex gap-2 justify-center">
             <button
               className="bg-amber-100 text-amber-800 p-3 rounded-lg w-48 font-semibold hover:opacity-97 disabled:opacity-80 justify-center gap-3 transition-transform duration-300 ease-in-out hover:scale-101 hover:bg-yellow-100 hover:shadow-md"
               disabled={loading}
@@ -85,14 +97,14 @@ export default function SignIn() {
             <span className="text-amber-100 hover:underline">Sign Up</span>
           </Link>
 
-          <div className=" ml-30 flex gap-2">
+          <div className="ml-30 flex gap-2">
             <p>Like What You See?</p>
             <Link to={"https://github.com/VIIthaG"}>
               <span className="text-amber-100 hover:underline">Rate Us</span>
             </Link>
           </div>
         </div>
-        {error && <p className="text-red-700">{error} </p>}
+        {error && <p className="text-red-700">{error}</p>}
       </div>
       <Link
         to="https://www.apple.com/in/"
