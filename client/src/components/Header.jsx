@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProfPicDef from "/Users/apple/Desktop/Real Estate Project/client/src/assets/sdfe.png";
+import ProfPicDef from "../assets/sdfe.png";
 
 export default function Header() {
   const [searchTerm, setSearchTerm] = useState("");

@@ -8,7 +8,7 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../components/OAuth";
-import ad from "/Users/apple/Desktop/Real Estate Project/client/src/assets/ad.jpg";
+import ad from "../assets/ad.jpg";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
-import ad from "/Users/apple/Desktop/Real Estate Project/client/src/assets/ad.jpg";
+import ad from "../assets/ad.jpg";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});

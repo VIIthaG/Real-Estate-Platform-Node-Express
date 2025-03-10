@@ -5,9 +5,9 @@ import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
-import taco from "/Users/apple/Desktop/Real Estate Project/client/src/assets/bBB.webp";
+import taco from "../assets/bBB.webp";
 
-import kfc from "/Users/apple/Desktop/Real Estate Project/client/src/assets/Screenshot-2021-12-28-132323.jpg";
+import kfc from "../assets/Screenshot-2021-12-28-132323.jpg";
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);

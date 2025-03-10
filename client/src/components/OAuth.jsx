@@ -3,7 +3,7 @@ import { app } from "../firebase";
 import { useDispatch } from "react-redux";
 import { signInSuccess } from "../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
-import goog from "/Users/apple/Desktop/Real Estate Project/client/src/assets/icons8-google-48.png";
+import goog from "../assets/icons8-google-48.png";
 
 function OAuth() {
   const dispatch = useDispatch();

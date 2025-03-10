@@ -1,7 +1,7 @@
 import { errorHandler } from "../utils/error.js";
 
 import bcryptjs from "bcryptjs";
-import User from "/Users/apple/Desktop/Real Estate Project/api/models/user.model.js";
+import User from "../models/user.model.js";
 import Listing from "../models/listing.model.js";
 
 export const test = (req, res) => {
