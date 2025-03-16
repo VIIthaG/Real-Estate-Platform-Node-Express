@@ -8,8 +8,7 @@ import { getAnalytics } from "firebase/analytics";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  // authDomain: "mern-stack-realestate-platform.firebaseapp.com",
-  authDomain: "kohiestate.onrender.com",
+  authDomain: "mern-stack-realestate-platform.firebaseapp.com",
 
   projectId: "mern-stack-realestate-platform",
   storageBucket: "mern-stack-realestate-platform.firebasestorage.app",
